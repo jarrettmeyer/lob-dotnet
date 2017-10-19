@@ -7,7 +7,7 @@ namespace LobTests
     public class LettersTests
     {
         [TestMethod]
-        public void TestCreate()
+        public async void TestCreate()
         {
             Credentials testCredentials = new Credentials("test_fd34e1b5ea86a597ec89f7f2e46940c874d");
             var lobClient = new LobClient("test-app", new CredentialStore(testCredentials));
@@ -37,7 +37,8 @@ namespace LobTests
                 file: "url"
             );
 
-            lobClient.Letter.Create(letter);
+            Letter response = await lobClient.Letter.Create(letter);
+            Assert.IsTrue(response.Id != null && response.Id.Length > 0);
         }
     }
 }

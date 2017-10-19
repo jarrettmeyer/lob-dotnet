@@ -8,7 +8,7 @@ namespace Lob
             object to,
             object from,
             string file,
-            int perforatedPage,
+            int? perforatedPage = null,
             string description = null,
             bool color = true,
             object mergeVariables = null,
@@ -17,7 +17,7 @@ namespace Lob
             bool returnEnvelope = false,
             string mailType = "usps_first_class",
             string extraService = null,
-            Nullable <DateTime> sendDate = null,
+            DateTime? sendDate = null,
             object metaData = null
             )
         {
@@ -57,13 +57,13 @@ namespace Lob
 
         public bool ReturnEnvelope { get; set; }
 
-        public int PerforatedPage { get; set; }
+        public int? PerforatedPage { get; set; }
 
         public string MailType { get; set; }
 
         public string ExtraService { get; set; }
 
-        public Nullable <DateTime> SendDate { get; set; }
+        public DateTime? SendDate { get; set; }
 
         public object MetaData { get; set; }
     }
